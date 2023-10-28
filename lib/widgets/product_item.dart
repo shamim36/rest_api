@@ -41,27 +41,30 @@ class ProductItem extends StatelessWidget {
 AlertDialog productActionDialog(BuildContext context) {
   return AlertDialog(
     title: Text('Select Action'),
-    content: Column(
-      children: [
+    content: SizedBox(
+      height: 160,
+      child: Column(
+        children: [
+          ListTile(
+          title: Text('Edit'),
+          leading: Icon(Icons.edit),
+          onTap: (){
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return AddNewProductScreen();
+            },),);
+          },
+        ),
+        const Divider(),
         ListTile(
-        title: Text('Edit'),
-        leading: Icon(Icons.edit),
-        onTap: (){
-          Navigator.pop(context);
-          Navigator.push(context, MaterialPageRoute(builder: (context){
-            return AddNewProductScreen();
-          },),);
-        },
+          title: Text('Delete'),
+          leading: Icon(Icons.edit),
+          onTap: (){
+            Navigator.pop(context);
+          },
+        ),
+        ],
       ),
-      const Divider(),
-      ListTile(
-        title: Text('Delete'),
-        leading: Icon(Icons.edit),
-        onTap: (){
-          Navigator.pop(context);
-        },
-      ),
-      ],
     ),
   );
 }
